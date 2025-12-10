@@ -27,6 +27,25 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.get('/getCookie', (req, res) => {
+  res.cookie('song', 'chemtrails over the country club')
+  return res.send('cookie set success')
+})
+
+app.get('/getOrigin', (req, res) => {
+  console.log("origin", req.headers.origin)
+  return res.send('get origin success')
+})
+
+app.get('/checkCookie', (req, res) => {
+  const cookie = req.headers.cookie
+  console.log("cookie", cookie)
+  console.log("referer", req.headers.referer)
+  return res.send('check cookie success')
+})
+
 app.use('/bird', bird)
 
 https.createServer(options, app).listen(PORT, () => {
