@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/getCookie', (req, res) => {
   res.cookie('song', 'chemtrails over the country club', {
-    sameSite: 'None',
+    // sameSite: 'None',
     secure: true
   })
   return res.send('cookie set success')
