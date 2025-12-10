@@ -14,10 +14,10 @@ const options = {
 };
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // 允许所有来源
+  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5501'); // 允许所有来源
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  // res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Credentials', true);
 
   // 处理预检请求（OPTIONS）
   if (req.method === 'OPTIONS') {
