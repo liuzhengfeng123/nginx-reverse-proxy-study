@@ -1,0 +1,15 @@
+{
+  "name": "nginx-reverse-proxy-study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "liuzhengfeng <563596927@qq.com>",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.22.1"
+  }
+}
