@@ -1,7 +1,15 @@
+const https = require('https')
 const express = require('express')
 const bird = require('./routes/bird')
 const app = express()
-const PORT = 80
+const PORT = 443
+
+const domain = 'liuzhengfeng.xyz'
+
+const options = {
+  key: fs.readFileSync(path.join(`/etc/letsencrypt/live/${domain}`, 'privkey.pem')),    // 私钥
+  cert: fs.readFileSync(path.join(`/etc/letsencrypt/live/${domain}`, 'fullchain.pem'))  // 全链证书（关键！）
+};
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // 允许所有来源
@@ -19,6 +27,6 @@ app.use((req, res, next) => {
 
 app.use('/bird', bird)
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`)
+https.createServer(options, app).listen(PORT, () => {
+  console.log(`Server is running on port https://${domain}:${PORT}`)
 })
